@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="order_status_page" name="POS Order Status Screen">
+        <t t-out="doctype"/>
+        <html lang="ar">
+            <head>
+                <meta charset="utf-8"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <title t-esc="config.name"/>
+                <link rel="stylesheet" href="/pos_order_status_board/static/src/board/board.css"/>
+            </head>
+            <body t-att-data-url="data_url">
+                <header class="board-header">
+                    <h1 t-esc="config.name"/>
+                    <span id="offline" class="offline" hidden="hidden">غير متصل · Offline</span>
+                </header>
+                <main class="board">
+                    <section class="column preparing">
+                        <h2><span>قيد التحضير</span><span>Preparing</span></h2>
+                        <div id="preparing" class="numbers"/>
+                    </section>
+                    <section class="column ready">
+                        <h2><span>جاهز للاستلام</span><span>Ready</span></h2>
+                        <div id="ready" class="numbers"/>
+                    </section>
+                </main>
+                <button id="enable-sound" class="enable-sound" type="button">
+                    اضغط لتشغيل الصوت · Tap to enable sound
+                </button>
+                <script src="/pos_order_status_board/static/src/board/board.js"/>
+            </body>
+        </html>
+    </template>
+</odoo>

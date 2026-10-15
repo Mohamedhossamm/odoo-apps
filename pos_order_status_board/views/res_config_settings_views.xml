@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.pos.order.status</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_preparation_section']" position="after">
+                <block title="Order Status Screen" id="pos_order_status_section">
+                    <setting id="order_status_board" string="Customer order status screen"
+                             help="Show preparing and ready order numbers on a TV and call ready orders out loud">
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label for="pos_order_status_voice" class="col-lg-5 o_light_label"/>
+                                <field name="pos_order_status_voice"/>
+                            </div>
+                            <div class="row">
+                                <label for="pos_order_status_repeat" class="col-lg-5 o_light_label"/>
+                                <field name="pos_order_status_repeat"/>
+                            </div>
+                            <div class="row">
+                                <label for="pos_order_status_ready_minutes" class="col-lg-5 o_light_label"/>
+                                <field name="pos_order_status_ready_minutes"/>
+                            </div>
+                            <div class="mt16">
+                                <label for="pos_order_status_url" class="o_light_label"/>
+                                <field name="pos_order_status_url" widget="url"/>
+                            </div>
+                            <button name="action_reset_order_status_token" type="object" icon="fa-refresh"
+                                    class="btn-link" string="Create a new link"
+                                    confirm="The current screen link will stop working. Continue?"/>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

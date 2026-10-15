@@ -1,0 +1,73 @@
+<section class="container" style="max-width: 1100px;">
+
+    <div class="text-center my-5">
+        <h1 style="font-weight: 700;">POS Order Status Screen with Voice Calling</h1>
+        <p class="lead mt-3">
+            Show <b>Preparing</b> and <b>Ready</b> order numbers on a TV, and call each ready order out loud
+            in <b>Arabic and English</b>. Works straight from the Point of Sale: no kitchen display needed.
+        </p>
+        <p class="lead" dir="rtl" lang="ar">
+            شاشة تعرض أرقام الطلبات قيد التحضير والجاهزة، وتنادي على كل طلب جاهز بالصوت بالعربي والإنجليزي.
+            تعمل من نقطة البيع مباشرة بدون شاشة مطبخ.
+        </p>
+    </div>
+
+    <img src="screen_board.png" class="img-fluid rounded shadow mb-5" alt="Order status screen on a TV with preparing and ready columns"/>
+
+    <h2 class="mt-5 mb-4">How it works</h2>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <h4>1. The customer pays</h4>
+            <p>Every paid order appears under <b>Preparing</b> with its order number, automatically.</p>
+        </div>
+        <div class="col-md-4">
+            <h4>2. The cashier taps "Ready"</h4>
+            <p>A new button in the POS top bar opens the order list. One tap moves an order to <b>Ready</b>.</p>
+        </div>
+        <div class="col-md-4">
+            <h4>3. The screen calls it out</h4>
+            <p>The TV plays a chime and says "Order number 318 is ready", in Arabic, English or both.</p>
+        </div>
+    </div>
+
+    <h2 class="mt-5 mb-4">Cashier panel</h2>
+    <img src="screen_cashier_panel_ar.png" class="img-fluid rounded shadow mb-3" alt="Cashier panel in the Point of Sale, in Arabic"/>
+    <p>Mark orders ready, mark them collected, or send one back to preparing if it was tapped by mistake. Fully translated to Arabic.</p>
+
+    <h2 class="mt-5 mb-4">Features</h2>
+    <ul>
+        <li><b>Voice calling</b> in Arabic, English, or Arabic then English, repeated as many times as you choose. A chime plays before each call.</li>
+        <li><b>No kitchen display required.</b> Ideal for cafés, bakeries, food trucks and take-away counters.</li>
+        <li><b>Live updates</b> every 3 seconds, with no page reload. Newly ready numbers blink.</li>
+        <li><b>Any screen with a browser:</b> TV, tablet or second monitor. Opens from a secret link, no login needed.</li>
+        <li><b>Secure link per point of sale.</b> Create a new link at any time to disable the old one.</li>
+        <li><b>Ready orders clear themselves</b> after the number of minutes you set, or stay until collected.</li>
+        <li><b>Several cashiers, one screen:</b> statuses are stored on the server, so every register sees the same list.</li>
+        <li>Bilingual screen labels: قيد التحضير / Preparing, جاهز للاستلام / Ready.</li>
+    </ul>
+
+    <h2 class="mt-5 mb-4">Setup</h2>
+    <ol>
+        <li>Install the app.</li>
+        <li>Go to <b>Point of Sale › Configuration › Settings › Order Status Screen</b>, choose the voice language and repeat count.</li>
+        <li>Open the <b>Order Status Screen Link</b> on the TV's browser, or from the POS with <b>Open customer screen</b>.</li>
+        <li>Tap <b>"Tap to enable sound"</b> once on the TV. Browsers block sound until someone taps the page.</li>
+    </ol>
+
+    <h2 class="mt-5 mb-4">Voice requirements</h2>
+    <p>
+        The voice uses the text-to-speech engine built into the screen's browser, so it needs no internet service and no subscription.
+        The browser must have an Arabic voice for Arabic calls; when it has none, the Arabic call is skipped and the chime still plays.
+    </p>
+    <p><b>Tested on:</b> Google Chrome on macOS.</p>
+
+    <h2 class="mt-5 mb-4">Compatibility</h2>
+    <ul>
+        <li>Odoo 18, tested on Community edition.</li>
+        <li>Depends only on Point of Sale.</li>
+    </ul>
+
+    <h2 class="mt-5 mb-4">Support</h2>
+    <p>Questions or problems: contact me through the Odoo Apps store and I will answer within two working days.</p>
+
+</section>

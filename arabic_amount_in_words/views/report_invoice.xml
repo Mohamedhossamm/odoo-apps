@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_invoice_document" inherit_id="account.report_invoice_document">
+        <!-- In Arabic, Odoo's own line already shows our text through amount_to_text.
+             For other languages, add an Arabic line under it when the company asks for it. -->
+        <xpath expr="//p[@t-if='o.company_id.display_invoice_amount_total_words']" position="after">
+            <p class="text-end lh-sm" dir="rtl"
+               t-if="o.company_id.arabic_amount_words_bilingual and o.amount_total_words_ar and not (o.env.lang or '').startswith('ar')">
+                <small class="text-muted lh-sm"><span t-field="o.amount_total_words_ar"/></small>
+            </p>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,68 @@
+<section class="container" style="max-width: 1100px;">
+
+    <div class="text-center my-5">
+        <h1 style="font-weight: 700;">Arabic Amount in Words (Tafqeet)</h1>
+        <p class="lead mt-3">
+            Print the invoice total in correct Arabic words, the way accountants write it:
+        </p>
+        <p class="lead" dir="rtl" lang="ar" style="font-size: 1.5rem;">
+            فقط ألف ومائتان وأربعة وثلاثون جنيهاً وخمسون قرشاً لا غير
+        </p>
+    </div>
+
+    <h2 class="mt-5 mb-3">Why Odoo's own text is not enough</h2>
+    <p>
+        Odoo writes amounts with a generic library that ignores Arabic number grammar. It writes 2,000,000 as
+        "مليونا" instead of "مليونان", "خمسون قرش" without the accusative, puts a space after every "و",
+        and knows nothing about the currency noun that must follow the number.
+    </p>
+    <p>This app replaces it with a grammar engine built for Arabic financial documents:</p>
+    <table class="table table-bordered" dir="rtl" lang="ar">
+        <thead><tr><th>Number</th><th>Form of the currency</th><th>Example</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>noun + واحد</td><td>جنيه واحد / هللة واحدة</td></tr>
+            <tr><td>2</td><td>dual</td><td>جنيهان / هللتان</td></tr>
+            <tr><td>3 – 10</td><td>plural, opposite gender</td><td>ثلاثة جنيهات / ثلاث هللات</td></tr>
+            <tr><td>11 – 99</td><td>singular accusative</td><td>أحد عشر جنيهاً</td></tr>
+            <tr><td>100, 1,000, …</td><td>singular genitive</td><td>مائة جنيه / ألفا جنيه</td></tr>
+        </tbody>
+    </table>
+
+    <h2 class="mt-5 mb-3">Arabic invoices</h2>
+    <p>Invoices printed in Arabic show the corrected text on Odoo's own "amount in words" line.</p>
+    <img src="invoice_arabic_egp.png" class="img-fluid rounded shadow mb-4" alt="Arabic invoice with the total in Arabic words"/>
+
+    <h2 class="mt-5 mb-3">Bilingual invoices</h2>
+    <p>
+        One setting adds the Arabic amount under the English one on invoices printed in any other language,
+        as required on bilingual invoices in Saudi Arabia and the Gulf.
+    </p>
+    <img src="invoice_english_bilingual_sar.png" class="img-fluid rounded shadow mb-4" alt="English invoice with an extra line in Arabic words"/>
+
+    <h2 class="mt-5 mb-3">Features</h2>
+    <ul>
+        <li>Correct Arabic grammar for 1, 2, 3–10, 11–99 and hundreds, thousands, millions and billions.</li>
+        <li>Masculine and feminine currency nouns: ثلاثة ريالات وثلاث هللات.</li>
+        <li>Currencies: EGP, SAR, AED, QAR, KWD, BHD, JOD, OMR and USD, including three-decimal dinars and rials.</li>
+        <li>Optional "فقط … لا غير" wording.</li>
+        <li>Works wherever Odoo writes amounts in words in Arabic, including cheque printing.</li>
+        <li>Other currencies and languages keep Odoo's standard text.</li>
+    </ul>
+
+    <h2 class="mt-5 mb-3">Setup</h2>
+    <ol>
+        <li>Install the app.</li>
+        <li>In <b>Accounting › Configuration › Settings</b>, enable <b>Total amount of invoice in letters</b>.</li>
+        <li>Optionally enable <b>Arabic amount in words on all invoices</b> for bilingual invoices.</li>
+    </ol>
+
+    <h2 class="mt-5 mb-3">Compatibility</h2>
+    <ul>
+        <li>Odoo 18, tested on Community edition.</li>
+        <li>Depends only on Invoicing (account).</li>
+    </ul>
+
+    <h2 class="mt-5 mb-3">Support</h2>
+    <p>Questions or problems: contact me through the Odoo Apps store and I will answer within two working days.</p>
+
+</section>

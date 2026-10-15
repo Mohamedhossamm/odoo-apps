@@ -13,5 +13,6 @@
         "views/res_config_settings_views.xml",
         "views/report_invoice.xml",
     ],
+    "images": ["static/description/invoice_english_bilingual_sar.png"],
     "installable": True,
 }

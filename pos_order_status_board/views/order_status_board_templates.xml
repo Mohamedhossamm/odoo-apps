@@ -7,7 +7,7 @@
                 <meta charset="utf-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <title t-esc="config.name"/>
-                <link rel="stylesheet" href="/pos_order_status_board/static/src/board/board.css"/>
+                <link rel="stylesheet" href="/pos_order_status_board/static/src/board/board.css?v=2"/>
             </head>
             <body t-att-data-url="data_url">
                 <header class="board-header">
@@ -27,7 +27,8 @@
                 <button id="enable-sound" class="enable-sound" type="button">
                     اضغط لتشغيل الصوت · Tap to enable sound
                 </button>
-                <script src="/pos_order_status_board/static/src/board/board.js"/>
+                <div id="sound-status" class="sound-status" hidden="hidden"/>
+                <script src="/pos_order_status_board/static/src/board/board.js?v=2"/>
             </body>
         </html>
     </template>

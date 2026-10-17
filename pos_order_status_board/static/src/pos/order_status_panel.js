@@ -4,8 +4,8 @@ import { Component, onMounted, onWillUnmount, useState } from "@odoo/owl";
 import { Dialog } from "@web/core/dialog/dialog";
 import { _t } from "@web/core/l10n/translation";
 import { useService } from "@web/core/utils/hooks";
-import { Navbar } from "@point_of_sale/app/navbar/navbar";
-import { usePos } from "@point_of_sale/app/store/pos_hook";
+import { Navbar } from "@point_of_sale/app/components/navbar/navbar";
+import { usePos } from "@point_of_sale/app/hooks/pos_hook";
 import { patch } from "@web/core/utils/patch";
 
 const REFRESH_MS = 5000;

@@ -2,7 +2,7 @@
     "name": "Arabic Amount in Words (Tafqeet)",
     "summary": "Grammatically correct Arabic amount in words on invoices: "
     "فقط ... لا غير, for EGP, SAR, AED, QAR, KWD, BHD, JOD, OMR and USD",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Accounting/Localizations",
     "author": "Mohamed Hossam",
     "license": "OPL-1",

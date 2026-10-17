@@ -2,7 +2,7 @@
     "name": "POS Order Status Screen with Voice Calling",
     "summary": "Show preparing and ready order numbers on a TV and call ready orders out loud, "
     "in Arabic and English. No kitchen display needed.",
-    "version": "18.0.1.0.0",
+    "version": "18.0.1.0.1",
     "category": "Sales/Point of Sale",
     "author": "Mohamed Hossam",
     "license": "OPL-1",

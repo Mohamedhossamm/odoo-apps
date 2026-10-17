@@ -14,6 +14,7 @@
     };
     const offlineBadge = document.getElementById("offline");
     const enableSoundButton = document.getElementById("enable-sound");
+    const soundStatus = document.getElementById("sound-status");
 
     let settings = { voice: "both", repeat: 1 };
     let knownReadyIds = null; // null until the first load, so orders already ready are not called out
@@ -139,7 +140,36 @@
         chime();
         enableSoundButton.hidden = true;
         document.documentElement.requestFullscreen?.().catch(() => {});
+        // Voices can arrive a moment after the tap; check once they had time to load.
+        setTimeout(reportSound, 1500);
     });
+
+    /** Say a test sentence and show what this browser can do, so setup problems are visible on the TV. */
+    function reportSound() {
+        const lines = [audioContext ? "✓ النغمة · Chime" : "✗ النغمة غير مدعومة · Chime not supported"];
+        if (!("speechSynthesis" in window)) {
+            lines.push("✗ هذا المتصفح لا يدعم نطق الكلام · This browser cannot speak");
+        } else {
+            const arabic = voiceFor("ar");
+            const english = voiceFor("en");
+            lines.push(arabic ? `✓ صوت عربي · Arabic voice (${arabic.name})` : "✗ لا يوجد صوت عربي · No Arabic voice");
+            lines.push(english ? `✓ English voice (${english.name})` : "✗ No English voice");
+            const test = arabic
+                ? { voice: arabic, text: "تم تشغيل الصوت" }
+                : english && { voice: english, text: "Sound is on" };
+            if (test) {
+                const utterance = new SpeechSynthesisUtterance(test.text);
+                utterance.voice = test.voice;
+                utterance.lang = test.voice.lang;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+        soundStatus.replaceChildren(
+            ...lines.map((line) => Object.assign(document.createElement("div"), { textContent: line }))
+        );
+        soundStatus.hidden = false;
+        setTimeout(() => (soundStatus.hidden = true), 20000);
+    }
 
     // Voices load asynchronously in Chrome; asking once starts the loading.
     if ("speechSynthesis" in window) {

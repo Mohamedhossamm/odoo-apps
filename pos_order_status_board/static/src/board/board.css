@@ -147,3 +147,16 @@ body {
         font-size: 7vh;
     }
 }
+
+.sound-status {
+    position: fixed;
+    inset-inline-start: 3vw;
+    bottom: 3vh;
+    max-width: 60vw;
+    padding: 1.2vh 1.5vw;
+    border-radius: 1vh;
+    background: rgba(255, 255, 255, 0.92);
+    color: #101418;
+    font-size: 2.2vh;
+    line-height: 1.5;
+}

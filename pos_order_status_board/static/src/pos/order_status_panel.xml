@@ -1,54 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
 
-    <t t-name="pos_order_status_board.OrderStatusPanel">
-        <Dialog title.translate="Order Status" size="'lg'" footer="false">
-            <div class="o_pos_order_status_panel row g-4">
-                <div class="col-6">
-                    <h4 class="d-flex align-items-center gap-2">
-                        Preparing
-                        <span class="badge text-bg-warning" t-esc="state.preparing.length"/>
-                    </h4>
-                    <p t-if="state.loaded and !state.preparing.length" class="text-muted">No orders in preparation.</p>
-                    <div class="d-grid gap-2">
-                        <button t-foreach="state.preparing" t-as="order" t-key="order.id"
-                                class="btn btn-lg btn-outline-success d-flex justify-content-between align-items-center"
-                                t-att-disabled="state.busy"
-                                t-on-click="() => this.setStatus(order, 'ready')">
-                            <span class="fs-3 fw-bold" t-esc="order.number"/>
-                            <span><i class="fa fa-bullhorn me-1"/>Mark ready</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <h4 class="d-flex align-items-center gap-2">
-                        Ready
-                        <span class="badge text-bg-success" t-esc="state.ready.length"/>
-                    </h4>
-                    <p t-if="state.loaded and !state.ready.length" class="text-muted">No orders waiting for pickup.</p>
-                    <div class="d-grid gap-2">
-                        <div t-foreach="state.ready" t-as="order" t-key="order.id" class="btn-group">
-                            <button class="btn btn-lg btn-success d-flex justify-content-between align-items-center flex-grow-1"
+    <t t-name="pos_order_status_board.OrderStatusPopup">
+        <div class="popup o_pos_order_status_panel" style="max-width: 900px; width: 90%;">
+            <div class="modal-header">
+                <h4 class="modal-title">Order Status</h4>
+            </div>
+            <main class="modal-body text-start">
+                <div class="row g-4">
+                    <div class="col-6">
+                        <h4 class="d-flex align-items-center gap-2">
+                            Preparing
+                            <span class="badge text-bg-warning" t-esc="state.preparing.length"/>
+                        </h4>
+                        <p t-if="state.loaded and !state.preparing.length" class="text-muted">No orders in preparation.</p>
+                        <div class="d-grid gap-2">
+                            <button t-foreach="state.preparing" t-as="order" t-key="order.id"
+                                    class="btn btn-lg btn-outline-success d-flex justify-content-between align-items-center"
                                     t-att-disabled="state.busy"
-                                    t-on-click="() => this.setStatus(order, 'collected')">
+                                    t-on-click="() => this.setStatus(order, 'ready')">
                                 <span class="fs-3 fw-bold" t-esc="order.number"/>
-                                <span><i class="fa fa-check me-1"/>Collected</span>
-                            </button>
-                            <button class="btn btn-lg btn-light flex-grow-0" title="Back to preparing"
-                                    t-att-disabled="state.busy"
-                                    t-on-click="() => this.setStatus(order, 'preparing')">
-                                <i class="fa fa-undo"/>
+                                <span><i class="fa fa-bullhorn me-1"/>Mark ready</span>
                             </button>
                         </div>
                     </div>
+                    <div class="col-6">
+                        <h4 class="d-flex align-items-center gap-2">
+                            Ready
+                            <span class="badge text-bg-success" t-esc="state.ready.length"/>
+                        </h4>
+                        <p t-if="state.loaded and !state.ready.length" class="text-muted">No orders waiting for pickup.</p>
+                        <div class="d-grid gap-2">
+                            <div t-foreach="state.ready" t-as="order" t-key="order.id" class="btn-group">
+                                <button class="btn btn-lg btn-success d-flex justify-content-between align-items-center flex-grow-1"
+                                        t-att-disabled="state.busy"
+                                        t-on-click="() => this.setStatus(order, 'collected')">
+                                    <span class="fs-3 fw-bold" t-esc="order.number"/>
+                                    <span><i class="fa fa-check me-1"/>Collected</span>
+                                </button>
+                                <button class="btn btn-lg btn-light flex-grow-0" title="Back to preparing"
+                                        t-att-disabled="state.busy"
+                                        t-on-click="() => this.setStatus(order, 'preparing')">
+                                    <i class="fa fa-undo"/>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="mt-4">
-                <button class="btn btn-secondary" t-att-disabled="!state.boardUrl" t-on-click="openBoard">
+            </main>
+            <footer class="footer modal-footer justify-content-between">
+                <button class="btn btn-lg btn-secondary" t-att-disabled="!state.boardUrl" t-on-click="openBoard">
                     <i class="fa fa-television me-1"/>Open customer screen
                 </button>
-            </div>
-        </Dialog>
+                <button class="button cancel btn btn-lg btn-primary" t-on-click="cancel">Close</button>
+            </footer>
+        </div>
     </t>
 
     <t t-name="pos_order_status_board.Navbar" t-inherit="point_of_sale.Navbar" t-inherit-mode="extension">

@@ -219,3 +219,9 @@ msgstr "النداء الصوتي"
 #: model_terms:ir.ui.view,arch_db:pos_order_status_board.order_status_page
 msgid "اضغط لتشغيل الصوت · Tap to enable sound"
 msgstr ""
+
+#. module: pos_order_status_board
+#. odoo-javascript
+#: code:addons/pos_order_status_board/static/src/pos/order_status_panel.xml:0
+msgid "Close"
+msgstr "إغلاق"

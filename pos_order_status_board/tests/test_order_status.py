@@ -16,8 +16,9 @@ class TestOrderStatus(TestPoSCommon):
         self.open_new_session()
 
     def _paid_orders(self, count):
-        created = self._create_orders([{"pos_order_lines_ui_args": [(self.burger, 1)]} for _ in range(count)])
-        return self.env["pos.order"].browse([order.id for order in created.values()]).sorted("id")
+        params = [{"pos_order_lines_ui_args": [(self.burger, 1)], "uid": self.create_random_uid()} for _ in range(count)]
+        created = self._create_orders(params)
+        return self.env["pos.order"].union(*created.values()).sorted("id")
 
     def _board_ids(self):
         board = self.config.get_order_status_board()

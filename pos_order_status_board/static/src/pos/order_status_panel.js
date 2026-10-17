@@ -1,9 +1,9 @@
 /** @odoo-module */
 
-import { Component, onMounted, onWillUnmount, useState } from "@odoo/owl";
-import { Dialog } from "@web/core/dialog/dialog";
+import { onMounted, onWillUnmount, useState } from "@odoo/owl";
 import { _t } from "@web/core/l10n/translation";
 import { useService } from "@web/core/utils/hooks";
+import { AbstractAwaitablePopup } from "@point_of_sale/app/popup/abstract_awaitable_popup";
 import { Navbar } from "@point_of_sale/app/navbar/navbar";
 import { usePos } from "@point_of_sale/app/store/pos_hook";
 import { patch } from "@web/core/utils/patch";
@@ -11,17 +11,14 @@ import { patch } from "@web/core/utils/patch";
 const REFRESH_MS = 5000;
 
 /** Cashier view: move paid orders from preparing to ready to collected. */
-export class OrderStatusPanel extends Component {
-    static template = "pos_order_status_board.OrderStatusPanel";
-    static components = { Dialog };
-    static props = { close: Function };
+export class OrderStatusPopup extends AbstractAwaitablePopup {
+    static template = "pos_order_status_board.OrderStatusPopup";
 
     setup() {
+        super.setup();
         this.pos = usePos();
-        // The plain ORM service, not pos.data: pos.data treats call results as records to load
-        // and drops a plain dictionary like the board data.
         this.orm = useService("orm");
-        this.notification = useService("notification");
+        this.notification = useService("pos_notification");
         this.state = useState({ preparing: [], ready: [], boardUrl: false, loaded: false, busy: false });
         onMounted(() => {
             this.refresh();
@@ -51,9 +48,7 @@ export class OrderStatusPanel extends Component {
             await this.orm.call("pos.order", "set_order_status", [[order.id], status]);
             await this.refresh();
         } catch {
-            this.notification.add(_t("Could not update the order. Check the connection."), {
-                type: "danger",
-            });
+            this.notification.add(_t("Could not update the order. Check the connection."), 3000);
         } finally {
             this.state.busy = false;
         }
@@ -66,6 +61,6 @@ export class OrderStatusPanel extends Component {
 
 patch(Navbar.prototype, {
     openOrderStatusPanel() {
-        this.dialog.add(OrderStatusPanel, {});
+        this.popup.add(OrderStatusPopup);
     },
 });

@@ -9,6 +9,7 @@ class TestArabicAmountWords(AccountTestInvoicingCommon):
     def setUpClass(cls):
         super().setUpClass()
         cls.env["res.lang"]._activate_lang("ar_001")
+        cls.env["res.lang"]._activate_lang("en_US")  # a database can be created with Arabic only
         cls.egp = cls.env.ref("base.EGP")
         cls.egp.active = True
         cls.kwd = cls.env.ref("base.KWD")

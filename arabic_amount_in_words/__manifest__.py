@@ -6,8 +6,6 @@
     "category": "Accounting/Localizations",
     "author": "Mohamed Hossam",
     "license": "OPL-1",
-    "price": 29.0,
-    "currency": "USD",
     "depends": ["account"],
     "data": [
         "views/res_config_settings_views.xml",

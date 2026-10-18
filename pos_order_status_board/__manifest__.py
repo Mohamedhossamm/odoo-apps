@@ -6,8 +6,6 @@
     "category": "Sales/Point of Sale",
     "author": "Mohamed Hossam",
     "license": "OPL-1",
-    "price": 79.0,
-    "currency": "USD",
     "depends": ["point_of_sale"],
     "data": [
         "views/res_config_settings_views.xml",

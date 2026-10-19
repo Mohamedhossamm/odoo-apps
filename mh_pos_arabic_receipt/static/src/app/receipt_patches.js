@@ -3,7 +3,7 @@
 import { Order, Orderline } from "@point_of_sale/app/store/models";
 import { patch } from "@web/core/utils/patch";
 import { session } from "@web/session";
-import { amountToArabic } from "@pos_arabic_receipt/app/tafqeet";
+import { amountToArabic } from "@mh_pos_arabic_receipt/app/tafqeet";
 
 patch(Orderline.prototype, {
     getDisplayData() {

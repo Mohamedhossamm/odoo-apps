@@ -2,7 +2,7 @@
 
 import { PosDB } from "@point_of_sale/app/store/db";
 import { patch } from "@web/core/utils/patch";
-import { normalizeArabic } from "@pos_arabic_search/app/normalize";
+import { normalizeArabic } from "@mh_pos_arabic_search/app/normalize";
 
 // The POS searches a text built from every product and customer: putting it and the query in one spelling is enough.
 

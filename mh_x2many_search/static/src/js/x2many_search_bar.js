@@ -5,7 +5,7 @@ import { formatDate, formatDateTime } from "@web/core/l10n/dates";
 import { _t } from "@web/core/l10n/translation";
 import { formatFloat } from "@web/core/utils/numbers";
 import { unaccent } from "@web/core/utils/strings";
-import { normalizeArabic } from "@web_x2many_search/js/normalize";
+import { normalizeArabic } from "@mh_x2many_search/js/normalize";
 
 const UNSEARCHABLE_TYPES = ["binary", "boolean", "image", "properties", "json"];
 
@@ -82,7 +82,7 @@ export function recordMatches(record, facets, columns) {
 }
 
 export class X2ManySearchBar extends Component {
-    static template = "web_x2many_search.X2ManySearchBar";
+    static template = "mh_x2many_search.X2ManySearchBar";
     static props = {
         columns: Array,
         facets: Array,

@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* pos_arabic_receipt
+# 	* mh_pos_arabic_receipt
 #
 msgid ""
 msgstr ""
@@ -15,100 +15,100 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: pos_arabic_receipt
-#: model_terms:ir.ui.view,arch_db:pos_arabic_receipt.res_config_settings_view_form
+#. module: mh_pos_arabic_receipt
+#: model_terms:ir.ui.view,arch_db:mh_pos_arabic_receipt.res_config_settings_view_form
 msgid "Add the Arabic word next to Total, Change, Discounts and Rounding"
 msgstr "إضافة الكلمة العربية بجانب الإجمالي والباقي والخصومات والتقريب"
 
-#. module: pos_arabic_receipt
-#: model:ir.model.fields,help:pos_arabic_receipt.field_pos_config__ar_receipt_labels
-#: model:ir.model.fields,help:pos_arabic_receipt.field_res_config_settings__pos_ar_receipt_labels
+#. module: mh_pos_arabic_receipt
+#: model:ir.model.fields,help:mh_pos_arabic_receipt.field_pos_config__ar_receipt_labels
+#: model:ir.model.fields,help:mh_pos_arabic_receipt.field_res_config_settings__pos_ar_receipt_labels
 msgid "Add the Arabic word next to Total, Change, Discounts and Rounding."
 msgstr "إضافة الكلمة العربية بجانب الإجمالي والباقي والخصومات والتقريب."
 
-#. module: pos_arabic_receipt
-#: model:ir.model.fields,field_description:pos_arabic_receipt.field_product_product__pos_arabic_name
+#. module: mh_pos_arabic_receipt
+#: model:ir.model.fields,field_description:mh_pos_arabic_receipt.field_product_product__pos_arabic_name
 msgid "Arabic Name for POS Receipts"
 msgstr "الاسم العربي لإيصالات نقاط البيع"
 
-#. module: pos_arabic_receipt
-#: model:ir.model.fields,field_description:pos_arabic_receipt.field_pos_config__ar_receipt_product_names
-#: model:ir.model.fields,field_description:pos_arabic_receipt.field_res_config_settings__pos_ar_receipt_product_names
+#. module: mh_pos_arabic_receipt
+#: model:ir.model.fields,field_description:mh_pos_arabic_receipt.field_pos_config__ar_receipt_product_names
+#: model:ir.model.fields,field_description:mh_pos_arabic_receipt.field_res_config_settings__pos_ar_receipt_product_names
 msgid "Arabic product names on receipts"
 msgstr "أسماء المنتجات بالعربي على الإيصالات"
 
-#. module: pos_arabic_receipt
-#: model:ir.model.fields,field_description:pos_arabic_receipt.field_pos_config__ar_receipt_labels
-#: model:ir.model.fields,field_description:pos_arabic_receipt.field_res_config_settings__pos_ar_receipt_labels
+#. module: mh_pos_arabic_receipt
+#: model:ir.model.fields,field_description:mh_pos_arabic_receipt.field_pos_config__ar_receipt_labels
+#: model:ir.model.fields,field_description:mh_pos_arabic_receipt.field_res_config_settings__pos_ar_receipt_labels
 msgid "Arabic receipt labels"
 msgstr "عناوين الإيصال بالعربي"
 
-#. module: pos_arabic_receipt
-#: model:ir.model,name:pos_arabic_receipt.model_res_config_settings
+#. module: mh_pos_arabic_receipt
+#: model:ir.model,name:mh_pos_arabic_receipt.model_res_config_settings
 msgid "Config Settings"
 msgstr "الإعدادات"
 
-#. module: pos_arabic_receipt
-#: model:ir.model.fields,field_description:pos_arabic_receipt.field_pos_config__ar_receipt_customer
-#: model:ir.model.fields,field_description:pos_arabic_receipt.field_res_config_settings__pos_ar_receipt_customer
+#. module: mh_pos_arabic_receipt
+#: model:ir.model.fields,field_description:mh_pos_arabic_receipt.field_pos_config__ar_receipt_customer
+#: model:ir.model.fields,field_description:mh_pos_arabic_receipt.field_res_config_settings__pos_ar_receipt_customer
 msgid "Customer on receipts"
 msgstr "العميل على الإيصالات"
 
-#. module: pos_arabic_receipt
-#: model:ir.model,name:pos_arabic_receipt.model_pos_config
+#. module: mh_pos_arabic_receipt
+#: model:ir.model,name:mh_pos_arabic_receipt.model_pos_config
 msgid "Point of Sale Configuration"
 msgstr "تهيئة نقطة البيع"
 
-#. module: pos_arabic_receipt
-#: model:ir.model,name:pos_arabic_receipt.model_pos_session
+#. module: mh_pos_arabic_receipt
+#: model:ir.model,name:mh_pos_arabic_receipt.model_pos_session
 msgid "Point of Sale Session"
 msgstr "جلسة نقطة البيع"
 
-#. module: pos_arabic_receipt
-#: model_terms:ir.ui.view,arch_db:pos_arabic_receipt.res_config_settings_view_form
+#. module: mh_pos_arabic_receipt
+#: model_terms:ir.ui.view,arch_db:mh_pos_arabic_receipt.res_config_settings_view_form
 msgid "Print each product's Arabic translation under its name"
 msgstr "طباعة الترجمة العربية لكل منتج تحت اسمه"
 
-#. module: pos_arabic_receipt
-#: model:ir.model.fields,help:pos_arabic_receipt.field_pos_config__ar_receipt_product_names
-#: model:ir.model.fields,help:pos_arabic_receipt.field_res_config_settings__pos_ar_receipt_product_names
+#. module: mh_pos_arabic_receipt
+#: model:ir.model.fields,help:mh_pos_arabic_receipt.field_pos_config__ar_receipt_product_names
+#: model:ir.model.fields,help:mh_pos_arabic_receipt.field_res_config_settings__pos_ar_receipt_product_names
 msgid "Print each product's Arabic translation under its name."
 msgstr "طباعة الترجمة العربية لكل منتج تحت اسمه."
 
-#. module: pos_arabic_receipt
-#: model_terms:ir.ui.view,arch_db:pos_arabic_receipt.res_config_settings_view_form
+#. module: mh_pos_arabic_receipt
+#: model_terms:ir.ui.view,arch_db:mh_pos_arabic_receipt.res_config_settings_view_form
 msgid "Print the customer's name and phone when the order has a customer"
 msgstr "طباعة اسم العميل ورقم هاتفه عندما يكون للطلب عميل"
 
-#. module: pos_arabic_receipt
-#: model:ir.model.fields,help:pos_arabic_receipt.field_pos_config__ar_receipt_customer
-#: model:ir.model.fields,help:pos_arabic_receipt.field_res_config_settings__pos_ar_receipt_customer
+#. module: mh_pos_arabic_receipt
+#: model:ir.model.fields,help:mh_pos_arabic_receipt.field_pos_config__ar_receipt_customer
+#: model:ir.model.fields,help:mh_pos_arabic_receipt.field_res_config_settings__pos_ar_receipt_customer
 msgid "Print the customer's name and phone when the order has a customer."
 msgstr "طباعة اسم العميل ورقم هاتفه عندما يكون للطلب عميل."
 
-#. module: pos_arabic_receipt
-#: model:ir.model.fields,help:pos_arabic_receipt.field_pos_config__ar_receipt_amount_words
-#: model:ir.model.fields,help:pos_arabic_receipt.field_res_config_settings__pos_ar_receipt_amount_words
+#. module: mh_pos_arabic_receipt
+#: model:ir.model.fields,help:mh_pos_arabic_receipt.field_pos_config__ar_receipt_amount_words
+#: model:ir.model.fields,help:mh_pos_arabic_receipt.field_res_config_settings__pos_ar_receipt_amount_words
 msgid "Print the total as words, for example: فقط مائة وخمسون جنيهاً لا غير."
 msgstr "طباعة الإجمالي كتابةً، مثلاً: فقط مائة وخمسون جنيهاً لا غير."
 
-#. module: pos_arabic_receipt
-#: model_terms:ir.ui.view,arch_db:pos_arabic_receipt.res_config_settings_view_form
+#. module: mh_pos_arabic_receipt
+#: model_terms:ir.ui.view,arch_db:mh_pos_arabic_receipt.res_config_settings_view_form
 msgid "Print the total in Arabic words: فقط ... لا غير"
 msgstr "طباعة الإجمالي كتابةً بالعربي: فقط ... لا غير"
 
-#. module: pos_arabic_receipt
-#: model:ir.model,name:pos_arabic_receipt.model_product_product
+#. module: mh_pos_arabic_receipt
+#: model:ir.model,name:mh_pos_arabic_receipt.model_product_product
 msgid "Product Variant"
 msgstr "متغير المنتج"
 
-#. module: pos_arabic_receipt
-#: model:ir.model.fields,help:pos_arabic_receipt.field_product_product__pos_arabic_name
+#. module: mh_pos_arabic_receipt
+#: model:ir.model.fields,help:mh_pos_arabic_receipt.field_product_product__pos_arabic_name
 msgid "The product name's Arabic translation, empty when there is none."
 msgstr "الترجمة العربية لاسم المنتج، وتكون فارغة إذا لم توجد ترجمة."
 
-#. module: pos_arabic_receipt
-#: model:ir.model.fields,field_description:pos_arabic_receipt.field_pos_config__ar_receipt_amount_words
-#: model:ir.model.fields,field_description:pos_arabic_receipt.field_res_config_settings__pos_ar_receipt_amount_words
+#. module: mh_pos_arabic_receipt
+#: model:ir.model.fields,field_description:mh_pos_arabic_receipt.field_pos_config__ar_receipt_amount_words
+#: model:ir.model.fields,field_description:mh_pos_arabic_receipt.field_res_config_settings__pos_ar_receipt_amount_words
 msgid "Total in Arabic words"
 msgstr "الإجمالي كتابةً بالعربي"

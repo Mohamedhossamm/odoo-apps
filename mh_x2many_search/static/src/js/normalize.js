@@ -1,6 +1,6 @@
 /** @odoo-module */
 // Arabic is typed many ways for the same word. Searching compares both sides in one spelling.
-// Same rules as pos_arabic_search/static/src/app/normalize.js; keep the two in step.
+// Same rules as mh_pos_arabic_search/static/src/app/normalize.js; keep the two in step.
 
 const LETTERS = {
     // Alef with hamza or madda, and alef wasla: أحمد = احمد

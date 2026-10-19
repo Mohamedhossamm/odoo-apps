@@ -2,7 +2,7 @@
 <templates xml:space="preserve">
 
     <!-- Same markup and classes as Odoo's search view, so it looks native in every theme. -->
-    <t t-name="web_x2many_search.X2ManySearchBar">
+    <t t-name="mh_x2many_search.X2ManySearchBar">
         <div class="o_x2m_search o_cp_searchview d-flex input-group" role="search">
             <div class="o_searchview form-control d-flex align-items-center py-1" role="search" aria-autocomplete="list">
                 <i class="o_searchview_icon oi oi-search me-2" role="img"/>
@@ -47,7 +47,7 @@
         </div>
     </t>
 
-    <t t-name="web_x2many_search.X2ManyField" t-inherit="web.X2ManyField" t-inherit-mode="extension">
+    <t t-name="mh_x2many_search.X2ManyField" t-inherit="web.X2ManyField" t-inherit-mode="extension">
         <!-- First in the control panel, on the same row as the pager. -->
         <xpath expr="//div[hasclass('o_x2m_control_panel')]/t[1]" position="before">
             <div t-if="showX2mSearch" class="o_x2m_search_panel d-flex flex-grow-1 align-items-center gap-2 me-3">

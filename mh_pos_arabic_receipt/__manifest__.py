@@ -12,7 +12,7 @@
     ],
     "assets": {
         "point_of_sale._assets_pos": [
-            "pos_arabic_receipt/static/src/app/**/*",
+            "mh_pos_arabic_receipt/static/src/app/**/*",
         ],
     },
     "images": ["static/description/banner.png"],

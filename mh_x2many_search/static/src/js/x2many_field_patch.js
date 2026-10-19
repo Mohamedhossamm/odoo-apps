@@ -8,7 +8,7 @@ import {
     X2ManySearchBar,
     recordMatches,
     searchableColumns,
-} from "@web_x2many_search/js/x2many_search_bar";
+} from "@mh_x2many_search/js/x2many_search_bar";
 
 // The search of each x2many list, read by its ListRenderer to hide the rows that do not match.
 const searchByList = new WeakMap();

@@ -4,7 +4,7 @@ import { OrderReceipt } from "@point_of_sale/app/screens/receipt_screen/receipt/
 import { PosOrderline } from "@point_of_sale/app/models/pos_order_line";
 import { patch } from "@web/core/utils/patch";
 import { user } from "@web/core/user";
-import { amountToArabic } from "@pos_arabic_receipt/app/tafqeet";
+import { amountToArabic } from "@mh_pos_arabic_receipt/app/tafqeet";
 
 patch(PosOrderline.prototype, {
     get arabicReceiptName() {

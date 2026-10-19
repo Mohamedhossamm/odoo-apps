@@ -2,7 +2,7 @@
 <templates id="template" xml:space="preserve">
 
     <!-- The Arabic text is already bilingual, so none of it is translated: an Arabic POS would print الهاتف / الهاتف. -->
-    <t t-name="pos_arabic_receipt.OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+    <t t-name="mh_pos_arabic_receipt.OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
         <xpath expr="//span[hasclass('label-total')]" position="inside">
             <span t-if="arabicLabels" t-translation="off"> / الإجمالي</span>
         </xpath>
@@ -22,7 +22,7 @@
         </xpath>
     </t>
 
-    <t t-name="pos_arabic_receipt.ReceiptHeader" t-inherit="point_of_sale.ReceiptHeader" t-inherit-mode="extension">
+    <t t-name="mh_pos_arabic_receipt.ReceiptHeader" t-inherit="point_of_sale.ReceiptHeader" t-inherit-mode="extension">
         <!-- Odoo already prints the customer's name; the phone is what is missing. -->
         <xpath expr="//div[hasclass('pos-receipt-customer')]" position="inside">
             <t t-set="arabicCustomerPhone" t-value="order.config.ar_receipt_customer and (order.partner_id.phone or order.partner_id.mobile)"/>
@@ -33,7 +33,7 @@
         </xpath>
     </t>
 
-    <t t-name="pos_arabic_receipt.Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+    <t t-name="mh_pos_arabic_receipt.Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
         <xpath expr="//small[hasclass('attribute-line')]" position="after">
             <div t-if="vals.isReceipt and line.arabicReceiptName" class="pos-receipt-ar-name text-wrap" dir="rtl" lang="ar">
                 <t t-esc="line.arabicReceiptName"/>

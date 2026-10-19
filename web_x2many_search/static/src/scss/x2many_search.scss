@@ -1,0 +1,15 @@
+.o_x2m_control_panel .o_x2m_search_panel {
+    max-width: 560px;
+
+    .o_x2m_search {
+        min-width: 240px;
+    }
+
+    // Under the search box, whatever the version's dropdown defaults are.
+    .o_searchview_autocomplete {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 0.25rem;
+    }
+}

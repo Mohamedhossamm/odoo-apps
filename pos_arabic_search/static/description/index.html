@@ -1,0 +1,45 @@
+<section class="container" style="max-width: 1100px;">
+
+    <div class="text-center my-5">
+        <h1 style="font-weight: 700;">POS Arabic Smart Search</h1>
+        <p class="lead mt-3">Find products and customers in the Point of Sale however the cashier types Arabic.</p>
+        <p class="lead" dir="rtl" lang="ar" style="font-size: 1.5rem;">&#1575;&#1576;&#1581;&#1579; &#1576;&#1575;&#1604;&#1593;&#1585;&#1576;&#1610; &#1586;&#1610; &#1605;&#1575; &#1578;&#1603;&#1578;&#1576;</p>
+    </div>
+
+    <h2 class="mt-5 mb-3">The problem</h2>
+    <p>
+        The same Arabic word is typed in many ways. A cashier types &#1575;&#1581;&#1605;&#1583; and Odoo does not find the customer
+        &#1571;&#1581;&#1605;&#1583;. They type &#1602;&#1607;&#1608;&#1607; and the product &#1602;&#1607;&#1608;&#1577; is not found. A phone number typed with Arabic digits finds nothing.
+    </p>
+
+    <h2 class="mt-5 mb-3">What this app matches</h2>
+    <table class="table table-bordered">
+        <thead><tr><th>Typed</th><th>Finds</th><th>Rule</th></tr></thead>
+        <tbody>
+            <tr><td dir="rtl">&#1575;&#1581;&#1605;&#1583; / &#1573;&#1581;&#1605;&#1583;</td><td dir="rtl">&#1571;&#1581;&#1605;&#1583;</td><td>All forms of alef: &#1571; &#1573; &#1570; &#1649; = &#1575;</td></tr>
+            <tr><td dir="rtl">&#1602;&#1607;&#1608;&#1607;</td><td dir="rtl">&#1602;&#1607;&#1608;&#1577;</td><td>Taa marbuta: &#1577; = &#1607;</td></tr>
+            <tr><td dir="rtl">&#1605;&#1587;&#1578;&#1588;&#1601;&#1610;</td><td dir="rtl">&#1605;&#1587;&#1578;&#1588;&#1601;&#1609;</td><td>Alef maqsura and yaa: &#1609; = &#1610;, &#1574; = &#1610;</td></tr>
+            <tr><td dir="rtl">&#1605;&#1608;&#1587;&#1587;&#1577;</td><td dir="rtl">&#1605;&#1572;&#1587;&#1587;&#1577;</td><td>Waw with hamza: &#1572; = &#1608;</td></tr>
+            <tr><td dir="rtl">&#1605;&#1581;&#1605;&#1583;</td><td dir="rtl">&#1605;&#1615;&#1581;&#1614;&#1605;&#1614;&#1617;&#1583; / &#1605;&#1600;&#1581;&#1600;&#1605;&#1600;&#1583;</td><td>Tashkeel and tatweel are ignored</td></tr>
+            <tr><td dir="rtl">&#1632;&#1633;&#1632;&#1632;&#1633;&#1634;&#1635;</td><td>01001234567</td><td>Arabic and Persian digits = 0&#8211;9</td></tr>
+        </tbody>
+    </table>
+    <p>It also matches Persian keyboard letters (&#1705; &#1740;) with their Arabic look-alikes. English search is unchanged.</p>
+
+    <h2 class="mt-5 mb-3">In the Point of Sale</h2>
+    <p>Searching &#1602;&#1607;&#1608;&#1607; with haa finds the product &#1602;&#1607;&#1608;&#1577; &#1578;&#1585;&#1603;&#1610;:</p>
+    <img src="pos_search_product.png" class="img-fluid rounded shadow mb-4" alt="POS product search finding &#1602;&#1607;&#1608;&#1577; when typing &#1602;&#1607;&#1608;&#1607;"/>
+
+    <h2 class="mt-5 mb-3">Setup</h2>
+    <p>Nothing to configure: install the app and reopen the Point of Sale. It works on the product search and on the customer list, offline too, and the search box keeps exactly what the cashier typed.</p>
+
+    <h2 class="mt-5 mb-3">Compatibility</h2>
+    <ul>
+        <li>Odoo 17, tested on Community edition.</li>
+        <li>Depends only on Point of Sale.</li>
+    </ul>
+
+    <h2 class="mt-5 mb-3">Support</h2>
+    <p>Questions or problems: contact me through the Odoo Apps store and I will answer within two working days.</p>
+
+</section>

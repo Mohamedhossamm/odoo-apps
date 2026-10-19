@@ -1,0 +1,43 @@
+<section class="container" style="max-width: 1100px;">
+
+    <div class="text-center my-5">
+        <h1 style="font-weight: 700;">Search in One2many &amp; Many2many Lists</h1>
+        <p class="lead mt-3">A search bar like Odoo's search view, above every list inside a form: invoice lines, order lines, picking moves, BoM components...</p>
+    </div>
+
+    <h2 class="mt-5 mb-3">Find a line in seconds</h2>
+    <p>
+        Type in the search bar above the lines and pick where to search, exactly like in Odoo's search view:
+        all columns, or one column such as Product, Label or Quantity.
+    </p>
+    <img src="search_suggestions.png" class="img-fluid rounded shadow mb-4" alt="Search suggestions above the invoice lines"/>
+
+    <h2 class="mt-5 mb-3">Combine filters</h2>
+    <p>
+        Each choice becomes a facet. Two values in the same column match either one (desk <i>or</i> chair);
+        facets on different columns must all match. The bar shows how many lines match, for example 4 / 45.
+        Remove a facet with its &#215; or with Backspace.
+    </p>
+    <img src="search_filtered.png" class="img-fluid rounded shadow mb-4" alt="Invoice lines filtered on Product: chair"/>
+
+    <h2 class="mt-5 mb-3">Features</h2>
+    <ul>
+        <li>Works on every one2many and many2many list in every form, in every app, with no configuration.</li>
+        <li>Searches all the lines, not only the current page: a 300-line order is searched in full.</li>
+        <li>Searches what the list shows: product and partner names, selections, dates, numbers as stored or as displayed (2 or 2.00).</li>
+        <li>Lines you are adding or editing stay visible while a search is active, and saving is not affected.</li>
+        <li>Arabic-aware: &#1571;&#1581;&#1605;&#1583; = &#1575;&#1581;&#1605;&#1583; = &#1573;&#1581;&#1605;&#1583;, &#1602;&#1607;&#1608;&#1577; = &#1602;&#1607;&#1608;&#1607;, &#1605;&#1587;&#1578;&#1588;&#1601;&#1609; = &#1605;&#1587;&#1578;&#1588;&#1601;&#1610;, tashkeel ignored, Arabic digits &#1632;&#1633;&#1634; = 012.</li>
+        <li>Looks native in every theme: it uses the same markup as Odoo's search view.</li>
+        <li>Hide it on one field with <code>options="{'no_search': True}"</code>.</li>
+    </ul>
+
+    <h2 class="mt-5 mb-3">Compatibility</h2>
+    <ul>
+        <li>Odoo 17, tested on Community edition.</li>
+        <li>Depends only on the web client (web).</li>
+    </ul>
+
+    <h2 class="mt-5 mb-3">Support</h2>
+    <p>Questions or problems: contact me through the Odoo Apps store and I will answer within two working days.</p>
+
+</section>

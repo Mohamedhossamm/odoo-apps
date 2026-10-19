@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!-- The Arabic text is already bilingual, so none of it is translated: an Arabic POS would print الهاتف / الهاتف. -->
+    <t t-name="pos_arabic_receipt.OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+        <xpath expr="//span[hasclass('label-total')]" position="inside">
+            <span t-if="arabicLabels" t-translation="off"> / الإجمالي</span>
+        </xpath>
+        <xpath expr="//span[hasclass('label-rounding')]" position="inside">
+            <span t-if="arabicLabels" t-translation="off"> / التقريب</span>
+        </xpath>
+        <xpath expr="//span[hasclass('label-change')]" position="inside">
+            <span t-if="arabicLabels" t-translation="off"> / الباقي</span>
+        </xpath>
+        <xpath expr="//span[hasclass('label-discount')]" position="inside">
+            <span t-if="arabicLabels" t-translation="off"> / الخصومات</span>
+        </xpath>
+        <xpath expr="//t[@t-if='order.appliedRounding']" position="after">
+            <div t-if="arabicAmount" class="pos-receipt-ar-amount text-center my-1" dir="rtl" lang="ar">
+                <t t-esc="arabicAmount"/>
+            </div>
+        </xpath>
+    </t>
+
+    <t t-name="pos_arabic_receipt.ReceiptHeader" t-inherit="point_of_sale.ReceiptHeader" t-inherit-mode="extension">
+        <!-- Odoo already prints the customer's name; the phone is what is missing. -->
+        <xpath expr="//div[hasclass('pos-receipt-customer')]" position="inside">
+            <t t-set="arabicCustomerPhone" t-value="order.config.ar_receipt_customer and (order.partner_id.phone or order.partner_id.mobile)"/>
+            <div t-if="arabicCustomerPhone" class="pos-receipt-ar-customer" t-translation="off">
+                <!-- bdi keeps the Arabic label and the number from reordering each other, so it prints as +20 100 ... -->
+                Phone / <bdi>الهاتف</bdi>: <bdi dir="ltr" t-esc="arabicCustomerPhone"/>
+            </div>
+        </xpath>
+    </t>
+
+    <t t-name="pos_arabic_receipt.Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+        <xpath expr="//small[hasclass('attribute-line')]" position="after">
+            <div t-if="vals.isReceipt and line.arabicReceiptName" class="pos-receipt-ar-name text-wrap" dir="rtl" lang="ar">
+                <t t-esc="line.arabicReceiptName"/>
+            </div>
+        </xpath>
+    </t>
+
+</templates>

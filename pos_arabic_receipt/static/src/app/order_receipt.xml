@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_arabic_receipt.OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+        <xpath expr="//ReceiptHeader" position="after">
+            <!-- Already bilingual, so the labels must not be translated: an Arabic POS would print العميل / العميل. -->
+            <div t-if="props.data.arabicCustomer" class="pos-receipt-ar-customer text-center my-2" t-translation="off">
+                <!-- bdi keeps the Arabic label and the value from reordering each other, so a phone prints as +20 100 ... -->
+                <div>Customer / <bdi>العميل</bdi>: <bdi t-esc="props.data.arabicCustomer.name"/></div>
+                <div t-if="props.data.arabicCustomer.phone">Phone / <bdi>الهاتف</bdi>: <bdi dir="ltr" t-esc="props.data.arabicCustomer.phone"/></div>
+            </div>
+        </xpath>
+        <xpath expr="//Orderline" position="inside">
+            <t t-set-slot="product-name">
+                <div t-if="line.arabicName" class="pos-receipt-ar-name fw-normal text-wrap" dir="rtl" lang="ar">
+                    <t t-esc="line.arabicName"/>
+                </div>
+            </t>
+        </xpath>
+        <xpath expr="//div[hasclass('receipt-total')]" position="after">
+            <div t-if="props.data.arabicAmount" class="pos-receipt-ar-amount text-center my-1" dir="rtl" lang="ar">
+                <t t-esc="props.data.arabicAmount"/>
+            </div>
+        </xpath>
+    </t>
+
+</templates>

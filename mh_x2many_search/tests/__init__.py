@@ -1,1 +1,1 @@
-from . import test_web_x2many_search
+from . import test_mh_x2many_search

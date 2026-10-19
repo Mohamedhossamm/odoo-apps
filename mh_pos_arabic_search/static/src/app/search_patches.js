@@ -5,7 +5,7 @@ import { ProductProduct } from "@point_of_sale/app/models/product_product";
 import { ProductScreen } from "@point_of_sale/app/screens/product_screen/product_screen";
 import { ResPartner } from "@point_of_sale/app/models/res_partner";
 import { patch } from "@web/core/utils/patch";
-import { normalizeArabic } from "@pos_arabic_search/app/normalize";
+import { normalizeArabic } from "@mh_pos_arabic_search/app/normalize";
 
 // Odoo filters with `searchString.includes(searchWord)`: putting both in one spelling is enough.
 

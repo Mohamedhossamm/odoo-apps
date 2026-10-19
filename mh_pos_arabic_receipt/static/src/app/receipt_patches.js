@@ -4,7 +4,7 @@ import { Orderline } from "@point_of_sale/app/generic_components/orderline/order
 import { PosOrder } from "@point_of_sale/app/models/pos_order";
 import { PosOrderline } from "@point_of_sale/app/models/pos_order_line";
 import { patch } from "@web/core/utils/patch";
-import { amountToArabic } from "@pos_arabic_receipt/app/tafqeet";
+import { amountToArabic } from "@mh_pos_arabic_receipt/app/tafqeet";
 
 // Orderline validates the shape of its line in debug mode and rejects unknown keys.
 Orderline.props.line.shape.arabicName = { type: String, optional: true };

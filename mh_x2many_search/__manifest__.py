@@ -11,7 +11,7 @@
     "depends": ["web"],
     "assets": {
         "web.assets_backend": [
-            "web_x2many_search/static/src/**/*",
+            "mh_x2many_search/static/src/**/*",
         ],
     },
     "images": ["static/description/banner.png"],

@@ -9,7 +9,7 @@
     "depends": ["point_of_sale"],
     "assets": {
         "point_of_sale._assets_pos": [
-            "pos_arabic_search/static/src/app/**/*",
+            "mh_pos_arabic_search/static/src/app/**/*",
         ],
     },
     "images": ["static/description/banner.png"],

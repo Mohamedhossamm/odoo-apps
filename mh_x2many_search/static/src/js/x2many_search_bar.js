@@ -3,7 +3,7 @@
 import { Component, useRef, useState } from "@odoo/owl";
 import { formatDate, formatDateTime } from "@web/core/l10n/dates";
 import { _t } from "@web/core/l10n/translation";
-import { formatFloat } from "@web/core/utils/numbers";
+import { formatFloat } from "@web/views/fields/formatters";
 import { unaccent } from "@web/core/utils/strings";
 import { normalizeArabic } from "@mh_x2many_search/js/normalize";
 
@@ -58,7 +58,8 @@ export function searchableColumns(archInfo, fields) {
             name: column.name,
             label: column.label || fields[column.name].string,
             fieldType: fields[column.name].type,
-            isHandle: column.isHandle,
+            // Odoo 16 marks the drag handle by its widget only.
+            isHandle: column.isHandle || column.widget === "handle",
             column_invisible: column.column_invisible,
         }))
         .filter((column) => {

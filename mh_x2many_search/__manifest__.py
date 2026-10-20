@@ -2,7 +2,7 @@
     "name": "Search in One2many and Many2many Lists",
     "summary": "A search bar like Odoo's search view above every one2many and many2many list in forms: "
     "search all columns or one column, combine filters, Arabic-aware",
-    "version": "17.0.1.0.0",
+    "version": "16.0.1.0.0",
     "category": "Productivity",
     "author": "Mohamed Hossam",
     "license": "OPL-1",

@@ -13,12 +13,14 @@ import {
 // The search of each x2many list, read by its ListRenderer to hide the rows that do not match.
 const searchByList = new WeakMap();
 
-patch(X2ManyField.prototype, {
+// Odoo 16 patches take a name and reach the original through this._super.
+patch(X2ManyField.prototype, "mh_x2many_search", {
     setup() {
-        super.setup(...arguments);
+        this._super(...arguments);
         this.x2mSearch = useState({ facets: [] });
+        const archInfo = (this.viewMode && this.activeField.views?.[this.viewMode]) || {};
         this.x2mSearchColumns =
-            this.props.viewMode === "list" ? searchableColumns(this.archInfo, this.list.fields) : [];
+            this.viewMode === "list" ? searchableColumns(archInfo, this.list.fields) : [];
         // The page size to come back to once the search is cleared.
         this.x2mSearchPageLimit = null;
     },
@@ -31,7 +33,7 @@ patch(X2ManyField.prototype, {
     get showX2mSearch() {
         return (
             this.x2mSearchColumns.length > 0 &&
-            !this.props.crudOptions?.no_search &&
+            !this.activeField.options?.no_search &&
             (this.list.count > 0 || this.x2mSearch.facets.length > 0)
         );
     },
@@ -43,7 +45,7 @@ patch(X2ManyField.prototype, {
 
     async onX2mSearchChange(facets) {
         const list = this.list;
-        if (list.editedRecord && !(await list.leaveEditMode())) {
+        if (list.editedRecord && !(await list.unselectRecord(true))) {
             return;
         }
         this.x2mSearch.facets = facets;
@@ -62,13 +64,13 @@ patch(X2ManyField.prototype, {
     get rendererProps() {
         const facets = this.x2mSearch.facets;
         searchByList.set(toRaw(this.list), facets.length ? { facets, columns: this.x2mSearchColumns } : null);
-        return super.rendererProps;
+        return this._super();
     },
 });
 
-patch(ListRenderer.prototype, {
+patch(ListRenderer.prototype, "mh_x2many_search", {
     getRowClass(record) {
-        const classNames = super.getRowClass(...arguments);
+        const classNames = this._super(...arguments);
         const search = this.props.list && searchByList.get(toRaw(this.props.list));
         // A line being added or edited stays visible even if it does not match yet.
         if (

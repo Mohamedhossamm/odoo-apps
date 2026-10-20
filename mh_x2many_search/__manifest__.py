@@ -6,8 +6,6 @@
     "category": "Productivity",
     "author": "Mohamed Hossam",
     "license": "OPL-1",
-    "price": 39.0,
-    "currency": "USD",
     "depends": ["web"],
     "assets": {
         "web.assets_backend": [

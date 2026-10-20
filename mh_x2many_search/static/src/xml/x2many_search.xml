@@ -5,40 +5,42 @@
     <t t-name="mh_x2many_search.X2ManySearchBar">
         <div class="o_x2m_search o_cp_searchview d-flex input-group" role="search">
             <div class="o_searchview form-control d-flex align-items-center py-1" role="search" aria-autocomplete="list">
-                <i class="o_searchview_icon oi oi-search me-2" role="img"/>
+                <i class="o_searchview_icon oi me-2" data-icon="search" role="img"/>
                 <div class="o_searchview_input_container d-flex flex-grow-1 flex-wrap gap-1 mw-100 position-relative">
-                    <t t-foreach="props.facets" t-as="facet" t-key="facet_index">
+                    <t t-foreach="this.props.facets" t-as="facet" t-key="facet_index">
                         <div class="o_searchview_facet position-relative d-inline-flex align-items-stretch rounded-2 bg-200 text-nowrap mw-100" role="listitem">
                             <div class="o_searchview_facet_label btn btn-primary position-relative rounded-start-2 px-1 rounded-end-0 p-0">
-                                <small class="px-1" t-esc="facet.label"/>
+                                <small class="px-1" t-out="facet.label"/>
                             </div>
                             <div class="o_facet_values position-relative d-flex flex-wrap align-items-center ps-2 rounded-end-2 text-wrap overflow-hidden">
                                 <t t-foreach="facet.values" t-as="value" t-key="value_index">
                                     <em t-if="!value_first" class="o_facet_values_sep small fw-bold mx-1 opacity-50">or</em>
-                                    <small class="o_facet_value text-truncate" t-esc="value" t-att-title="value"/>
+                                    <small class="o_facet_value text-truncate" t-out="value" t-att-title="value"/>
                                 </t>
-                                <button type="button" class="o_facet_remove oi oi-close btn btn-link py-0 px-2 text-danger"
-                                        aria-label="Remove" title="Remove" t-on-click="() => this.removeFacet(facet)"/>
+                                <!-- Odoo 20 icons come from data-icon, like its own search facets. -->
+                                <button type="button" class="o_facet_remove oi btn btn-link d-flex align-items-center px-1 py-0 text-danger fs-5"
+                                        data-icon="close_small" tabindex="-1"
+                                        aria-label="Remove" title="Remove" t-on-click.stop="() => this.removeFacet(facet)"/>
                             </div>
                         </div>
                     </t>
-                    <input type="text" t-ref="input"
+                    <input type="text" t-ref="this.inputRef"
                            class="o_searchview_input o_input flex-grow-1 w-auto border-0"
                            placeholder="Search lines..."
                            role="searchbox"
-                           t-model="state.query"
-                           t-on-input="onInput"
-                           t-on-keydown="onKeydown"
-                           t-on-focus="onFocus"
-                           t-on-blur="onBlur"/>
-                    <ul t-if="items.length" class="o-dropdown--menu dropdown-menu o_searchview_autocomplete show" role="menu">
-                        <li t-foreach="items" t-as="item" t-key="item.id"
+                           t-model.proxy="this.state.query"
+                           t-on-input="this.onInput"
+                           t-on-keydown="this.onKeydown"
+                           t-on-focus="this.onFocus"
+                           t-on-blur="this.onBlur"/>
+                    <ul t-if="this.items.length" class="o-dropdown--menu dropdown-menu o_searchview_autocomplete show" role="menu">
+                        <li t-foreach="this.items" t-as="item" t-key="item.id"
                             class="o_menu_item dropdown-item"
-                            t-att-class="{ focus: item_index === state.focusedIndex }"
+                            t-att-class="{ focus: item_index === this.state.focusedIndex }"
                             t-on-mousedown.prevent="() => this.select(item)"
-                            t-on-mousemove="() => state.focusedIndex = item_index">
+                            t-on-mousemove="() => this.state.focusedIndex = item_index">
                             <a href="#" t-on-click.prevent="">
-                                Search <b t-if="item.names" t-esc="item.label"/><b t-else="">all columns</b> for: <b class="fst-italic text-primary" t-esc="item.query"/>
+                                Search <b t-if="item.names" t-out="item.label"/><b t-else="">all columns</b> for: <b class="fst-italic text-primary" t-out="item.query"/>
                             </a>
                         </li>
                     </ul>
@@ -50,10 +52,10 @@
     <t t-name="mh_x2many_search.X2ManyField" t-inherit="web.X2ManyField" t-inherit-mode="extension">
         <!-- First in the control panel, on the same row as the pager. -->
         <xpath expr="//div[hasclass('o_x2m_control_panel')]/t[1]" position="before">
-            <div t-if="showX2mSearch" class="o_x2m_search_panel d-flex flex-grow-1 align-items-center gap-2 me-3">
-                <t t-component="x2mSearchBar" columns="x2mSearchColumns" facets="x2mSearch.facets" onChange.bind="onX2mSearchChange"/>
-                <small t-if="x2mSearch.facets.length" class="o_x2m_search_count text-muted text-nowrap">
-                    <t t-esc="x2mSearchMatchCount"/> / <t t-esc="list.count"/>
+            <div t-if="this.showX2mSearch" class="o_x2m_search_panel d-flex flex-grow-1 align-items-center gap-2 me-3">
+                <t t-component="this.x2mSearchBar" columns="this.x2mSearchColumns" facets="this.x2mSearch.facets" onChange.bind="this.onX2mSearchChange"/>
+                <small t-if="this.x2mSearch.facets.length" class="o_x2m_search_count text-muted text-nowrap">
+                    <t t-out="this.x2mSearchMatchCount"/> / <t t-out="this.list.count"/>
                 </small>
             </div>
         </xpath>

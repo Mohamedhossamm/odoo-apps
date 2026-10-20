@@ -1,6 +1,7 @@
 /** @odoo-module */
 
-import { toRaw, useState } from "@odoo/owl";
+import { proxy, toRaw } from "@odoo/owl";
+import { render } from "@web/owl2/utils";
 import { patch } from "@web/core/utils/patch";
 import { X2ManyField } from "@web/views/fields/x2many/x2many_field";
 import { ListRenderer } from "@web/views/list/list_renderer";
@@ -16,7 +17,7 @@ const searchByList = new WeakMap();
 patch(X2ManyField.prototype, {
     setup() {
         super.setup(...arguments);
-        this.x2mSearch = useState({ facets: [] });
+        this.x2mSearch = proxy({ facets: [] });
         this.x2mSearchColumns =
             this.props.viewMode === "list" ? searchableColumns(this.archInfo, this.list.fields) : [];
         // The page size to come back to once the search is cleared.
@@ -56,7 +57,7 @@ patch(X2ManyField.prototype, {
             this.x2mSearchPageLimit = null;
             await list.load({ limit, offset: 0 });
         }
-        this.render();
+        render(this);
     },
 
     get rendererProps() {

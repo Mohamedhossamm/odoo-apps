@@ -1,6 +1,6 @@
 /** @odoo-module */
 
-import { Component, useRef, useState } from "@odoo/owl";
+import { Component, proxy, signal, t, useProps } from "@odoo/owl";
 import { formatDate, formatDateTime } from "@web/core/l10n/dates";
 import { _t } from "@web/core/l10n/translation";
 import { formatFloat } from "@web/core/utils/numbers";
@@ -52,7 +52,9 @@ function fieldText(record, column) {
  */
 export function searchableColumns(archInfo, fields) {
     const seen = new Set();
+    // Odoo 20 can group several fields under one <column>: each of them is searchable.
     return (archInfo.columns || [])
+        .flatMap((column) => (column.type === "column_group" ? column.fields : [column]))
         .filter((column) => column.type === "field" && fields[column.name])
         .map((column) => ({
             name: column.name,
@@ -83,15 +85,15 @@ export function recordMatches(record, facets, columns) {
 
 export class X2ManySearchBar extends Component {
     static template = "mh_x2many_search.X2ManySearchBar";
-    static props = {
-        columns: Array,
-        facets: Array,
-        onChange: Function,
-    };
+    props = useProps({
+        columns: t.array(),
+        facets: t.array(),
+        onChange: t.function(),
+    });
+    inputRef = signal.ref();
 
     setup() {
-        this.state = useState({ query: "", focusedIndex: 0, open: false });
-        this.inputRef = useRef("input");
+        this.state = proxy({ query: "", focusedIndex: 0, open: false });
     }
 
     get items() {
@@ -123,16 +125,16 @@ export class X2ManySearchBar extends Component {
         this.state.query = "";
         this.state.focusedIndex = 0;
         // Owl may skip writing "" back if the box was never rendered with the typed text.
-        if (this.inputRef.el) {
-            this.inputRef.el.value = "";
+        if (this.inputRef()) {
+            this.inputRef().value = "";
         }
         this.props.onChange(facets);
-        this.inputRef.el?.focus();
+        this.inputRef()?.focus();
     }
 
     removeFacet(facet) {
         this.props.onChange(this.props.facets.filter((f) => f !== facet));
-        this.inputRef.el?.focus();
+        this.inputRef()?.focus();
     }
 
     onInput() {
@@ -185,7 +187,7 @@ export class X2ManySearchBar extends Component {
     onBlur() {
         // Let a click on a suggestion land before the suggestions close.
         setTimeout(() => {
-            if (this.inputRef.el && document.activeElement !== this.inputRef.el) {
+            if (this.inputRef() && document.activeElement !== this.inputRef()) {
                 this.state.open = false;
             }
         }, 200);

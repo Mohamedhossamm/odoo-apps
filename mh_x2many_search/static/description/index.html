@@ -1,43 +1,93 @@
 <section class="container" style="max-width: 1100px;">
 
-    <div class="text-center my-5">
-        <h1 style="font-weight: 700;">Search in One2many &amp; Many2many Lists</h1>
-        <p class="lead mt-3">A search bar like Odoo's search view, above every list inside a form: invoice lines, order lines, picking moves, BoM components...</p>
+    <div class="text-center mt-5 mb-4">
+        <h1 style="font-weight: 700;">One2many &amp; Many2many Search</h1>
+        <p class="lead mt-3 mb-1">Odoo's search view, above every list inside a form.</p>
+        <p class="text-muted">Find a line in a 300-line sale order, invoice, purchase order or transfer in seconds: by product, label, quantity or any column.</p>
+    </div>
+    <img src="demo.gif" class="img-fluid rounded shadow mb-5 d-block mx-auto" alt="Searching invoice lines by product, then by quantity, then in Arabic"/>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="h-100 p-4 rounded border">
+                <h5 style="font-weight: 700;">Every line, not just the page</h5>
+                <p class="mb-0 text-muted">The search covers all the lines of the record, also those beyond the first page of a long list.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 p-4 rounded border">
+                <h5 style="font-weight: 700;">Search one column or all</h5>
+                <p class="mb-0 text-muted">Pick where to search exactly like Odoo's search view: all columns, or Product, Label, Quantity, Taxes...</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 p-4 rounded border">
+                <h5 style="font-weight: 700;">Combine filters</h5>
+                <p class="mb-0 text-muted">Each choice becomes a facet. Values in one column match either one, different columns must all match. See 4 / 45 at a glance.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 p-4 rounded border">
+                <h5 style="font-weight: 700;">Zero configuration</h5>
+                <p class="mb-0 text-muted">Install and it appears on every one2many and many2many list, in every app. No view to edit, no widget to add.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 p-4 rounded border">
+                <h5 style="font-weight: 700;">Arabic-aware</h5>
+                <p class="mb-0 text-muted">&#1571;&#1581;&#1605;&#1583; = &#1575;&#1581;&#1605;&#1583;, &#1602;&#1607;&#1608;&#1577; = &#1602;&#1607;&#1608;&#1607;, &#1605;&#1587;&#1578;&#1588;&#1601;&#1609; = &#1605;&#1587;&#1578;&#1588;&#1601;&#1610;, tashkeel ignored, &#1632;&#1633;&#1634; = 012. Users find lines however they type.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 p-4 rounded border">
+                <h5 style="font-weight: 700;">Safe while editing</h5>
+                <p class="mb-0 text-muted">Lines you add or edit stay visible during a search, and saving the record is not affected.</p>
+            </div>
+        </div>
     </div>
 
-    <h2 class="mt-5 mb-3">Find a line in seconds</h2>
-    <p>
-        Type in the search bar above the lines and pick where to search, exactly like in Odoo's search view:
-        all columns, or one column such as Product, Label or Quantity.
-    </p>
+    <h2 class="mt-5 mb-3">Pick where to search</h2>
+    <p>Type in the bar above the lines and choose a column from the suggestions, or press Enter to search all columns.</p>
     <img src="search_suggestions.png" class="img-fluid rounded shadow mb-4" alt="Search suggestions above the invoice lines"/>
 
-    <h2 class="mt-5 mb-3">Combine filters</h2>
-    <p>
-        Each choice becomes a facet. Two values in the same column match either one (desk <i>or</i> chair);
-        facets on different columns must all match. The bar shows how many lines match, for example 4 / 45.
-        Remove a facet with its &#215; or with Backspace.
-    </p>
-    <img src="search_filtered.png" class="img-fluid rounded shadow mb-4" alt="Invoice lines filtered on Product: chair"/>
+    <h2 class="mt-5 mb-3">Narrow down with facets</h2>
+    <p>Product contains <i>chair</i> and Quantity is <i>2</i>: the list shows only the matching lines and how many there are. Remove a facet with its &#215; or with Backspace.</p>
+    <img src="search_filtered.png" class="img-fluid rounded shadow mb-4" alt="Invoice lines filtered on Product chair and Quantity 2"/>
 
-    <h2 class="mt-5 mb-3">Features</h2>
-    <ul>
-        <li>Works on every one2many and many2many list in every form, in every app, with no configuration.</li>
-        <li>Searches all the lines, not only the current page: a 300-line order is searched in full.</li>
-        <li>Searches what the list shows: product and partner names, selections, dates, numbers as stored or as displayed (2 or 2.00).</li>
-        <li>Lines you are adding or editing stay visible while a search is active, and saving is not affected.</li>
-        <li>Arabic-aware: &#1571;&#1581;&#1605;&#1583; = &#1575;&#1581;&#1605;&#1583; = &#1573;&#1581;&#1605;&#1583;, &#1602;&#1607;&#1608;&#1577; = &#1602;&#1607;&#1608;&#1607;, &#1605;&#1587;&#1578;&#1588;&#1601;&#1609; = &#1605;&#1587;&#1578;&#1588;&#1601;&#1610;, tashkeel ignored, Arabic digits &#1632;&#1633;&#1634; = 012.</li>
-        <li>Looks native in every theme: it uses the same markup as Odoo's search view.</li>
-        <li>Hide it on one field with <code>options="{'no_search': True}"</code>.</li>
-    </ul>
+    <h2 class="mt-5 mb-3">Arabic search that just works</h2>
+    <p>Typing &#1602;&#1607;&#1608;&#1607; finds &#1602;&#1607;&#1608;&#1577; &#1578;&#1585;&#1603;&#1610;: different spellings of alef, taa marbuta and yaa, tashkeel and Arabic digits are matched.</p>
+    <img src="search_arabic.png" class="img-fluid rounded shadow mb-4" alt="Arabic search in invoice lines"/>
+
+    <h2 class="mt-5 mb-3">Where it works</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <ul>
+                <li>Sale order lines and quotation lines</li>
+                <li>Purchase order lines and RFQ lines</li>
+                <li>Customer invoice and vendor bill lines, journal items</li>
+                <li>Stock moves and detailed operations in transfers</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul>
+                <li>Bill of materials components, manufacturing orders</li>
+                <li>Pricelist rules, payment terms, product variants</li>
+                <li>Many2many lists such as the users of a group</li>
+                <li>Any one2many or many2many list of any module, including custom ones</li>
+            </ul>
+        </div>
+    </div>
+    <p class="text-muted">Numbers are matched as stored or as displayed (2 and 2.00), and many2one, selection and date columns are searched by what the list shows. To hide the bar on one field, add <code>options="{'no_search': True}"</code> to it.</p>
 
     <h2 class="mt-5 mb-3">Compatibility</h2>
     <ul>
-        <li>Odoo 16, tested on Community edition.</li>
-        <li>Depends only on the web client (web).</li>
+        <li>This version: Odoo 16, tested on Community edition. Uses only the web client (depends on <code>web</code>).</li>
+        <li>Also available for Odoo 17, 18, 19 and 20.</li>
     </ul>
 
     <h2 class="mt-5 mb-3">Support</h2>
     <p>Questions or problems: contact me through the Odoo Apps store and I will answer within two working days.</p>
+
+    <p class="text-muted small mt-5">one2many search, many2many search, x2many search, search order lines, search invoice lines, filter one2many lines, search in form view lines, line items search, o2m filter, m2m filter</p>
 
 </section>

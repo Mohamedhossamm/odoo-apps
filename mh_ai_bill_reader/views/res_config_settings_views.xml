@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_mh_ai_bill" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.mh.ai.bill.reader</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='account_digitalization']" position="after">
+                <block title="AI Vendor Bill Reader" id="mh_ai_bill_reader_settings">
+                    <setting id="mh_ai_bill_provider_setting" string="AI Provider"
+                             help="Bills are sent to this AI provider to be read, with your own API key.">
+                        <div class="content-group">
+                            <div class="row mt8">
+                                <label for="mh_ai_bill_provider" class="col-lg-3 o_light_label"/>
+                                <field name="mh_ai_bill_provider"/>
+                            </div>
+                            <div class="row" groups="base.group_system">
+                                <label for="mh_ai_bill_api_key" class="col-lg-3 o_light_label"/>
+                                <field name="mh_ai_bill_api_key" password="True"/>
+                            </div>
+                            <div class="row">
+                                <label for="mh_ai_bill_model" class="col-lg-3 o_light_label"/>
+                                <field name="mh_ai_bill_model"
+                                       placeholder="Empty = default (Claude: claude-opus-5-5, ChatGPT: gpt-4.1, Gemini: newest Flash)"/>
+                            </div>
+                        </div>
+                    </setting>
+                    <setting id="mh_ai_bill_auto_read_setting"
+                             help="When you upload a vendor bill file, AI fills the bill right away.">
+                        <field name="mh_ai_bill_auto_read"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -8,7 +8,7 @@
     "category": "Accounting/Accounting",
     "author": "Mohamed Hossam",
     "license": "OPL-1",
-    "price": 89.0,
+    "price": 79.0,
     "currency": "USD",
     "depends": ["account"],
     "data": [

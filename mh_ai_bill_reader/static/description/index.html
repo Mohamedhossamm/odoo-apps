@@ -1,0 +1,72 @@
+<section class="container" style="max-width: 1100px;">
+
+    <div class="text-center mt-5 mb-4">
+        <h1 style="font-weight: 700;">AI Vendor Bill Reader</h1>
+        <p class="lead mt-3 mb-1">Upload a bill. AI fills it. You review and confirm.</p>
+        <p class="text-muted">Arabic and English vendor bills, PDF or phone photo, on Odoo Community. Use your own Claude, ChatGPT or Gemini key.</p>
+    </div>
+    <img src="banner.png" class="img-fluid rounded shadow mb-5 d-block mx-auto" alt="A vendor bill photo turned into an Odoo bill"/>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="h-100 p-4 rounded border">
+                <h5 style="font-weight: 700;">Made for Arabic bills</h5>
+                <p class="mb-0 text-muted">Reads Arabic-Indic digits, Arabic dates and tax numbers (الرقم الضريبي) from Egyptian, Saudi and UAE bills. Line descriptions stay in Arabic.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 p-4 rounded border">
+                <h5 style="font-weight: 700;">Everything filled</h5>
+                <p class="mb-0 text-muted">Vendor (matched by tax ID or name), bill number, bill date, due date, currency, every line with quantity, price, discount and VAT.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 p-4 rounded border">
+                <h5 style="font-weight: 700;">Your key, no credits</h5>
+                <p class="mb-0 text-muted">No Odoo IAP credits and no Enterprise needed. You pay your AI provider directly, usually a few cents per bill.</p>
+            </div>
+        </div>
+    </div>
+
+    <h3 style="font-weight: 700;" class="mb-3">1. Upload the bill and click Read with AI</h3>
+    <img src="before.png" class="img-fluid rounded shadow mb-5" alt="An empty vendor bill with the Arabic PDF next to it and the Read with AI button"/>
+
+    <h3 style="font-weight: 700;" class="mb-3">2. The bill is filled: vendor, tax ID, dates, lines and VAT</h3>
+    <img src="arabic.png" class="img-fluid rounded shadow mb-5" alt="The same Arabic bill filled by AI with three lines, 14% VAT and the right total"/>
+
+    <h3 style="font-weight: 700;" class="mb-3">Phone photos work too, even with prices that include VAT</h3>
+    <img src="receipt.png" class="img-fluid rounded shadow mb-5" alt="A tilted phone photo of an Arabic receipt read into a bill with fuel at 0% and oil at 14% VAT"/>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-6">
+            <h5 style="font-weight: 700;">Tells you what to check</h5>
+            <img src="chatter.png" class="img-fluid rounded border" alt="Chatter note: bill filled by AI, new vendor created"/>
+        </div>
+        <div class="col-md-6">
+            <h5 style="font-weight: 700;">Two-minute setup</h5>
+            <img src="settings.png" class="img-fluid rounded border" alt="Settings: AI provider, API key, model and automatic reading"/>
+        </div>
+    </div>
+
+    <h3 style="font-weight: 700;" class="mb-3">How it works</h3>
+    <ol class="mb-5">
+        <li>Accounting &gt; Configuration &gt; Settings &gt; <b>AI Vendor Bill Reader</b>: choose Claude, ChatGPT or Gemini and paste your API key.</li>
+        <li>Vendors &gt; Bills &gt; <b>Upload</b> your PDF or photo, as usual in Odoo.</li>
+        <li>Click <b>Read with AI</b> on the bill, or turn on <i>Read uploaded bills automatically</i>. To read many bills at once, select them in the list and use <b>Actions &gt; Read with AI</b>.</li>
+        <li>Review the bill and confirm. The chatter tells you what to check: a new vendor, a missing tax, or a total that does not match the bill.</li>
+    </ol>
+
+    <h3 style="font-weight: 700;" class="mb-3">Good to know</h3>
+    <ul class="mb-5">
+        <li>Matches products by internal reference, barcode or exact name. Lines without a match keep the bill's description and use the journal's default account.</li>
+        <li>Matches VAT to your existing purchase taxes by rate (14%, 15%, 5%...). Prices that include VAT are converted.</li>
+        <li>Never confirms a bill by itself: every bill stays in draft for your review.</li>
+        <li>The Claude provider needs the Python package <code>anthropic</code> on the server (<code>pip install anthropic</code>; on Debian or Ubuntu servers: <code>pip install --break-system-packages --ignore-installed typing_extensions anthropic</code>). ChatGPT and Gemini need nothing extra.</li>
+        <li>With Gemini, leave the model empty: the module uses the newest Flash model your key can use, and moves to the next one when a model is busy.</li>
+        <li>The bill file is sent to the AI provider you choose. Check that this fits your company's data policy.</li>
+    </ul>
+
+    <div class="text-center mb-5">
+        <p class="text-muted">Questions or a bill it reads wrong? Contact me through the Odoo Apps store page.</p>
+    </div>
+</section>

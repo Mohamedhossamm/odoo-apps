@@ -1,0 +1,57 @@
+<section class="container" style="max-width: 1100px;">
+
+    <div class="text-center mt-5 mb-4">
+        <h1 style="font-weight: 700;">Arabic Product Labels for Zebra (ZPL)</h1>
+        <p class="lead mt-3 mb-1">Arabic product names that print joined and right-to-left on thermal label printers.</p>
+        <p class="text-muted">Zebra and other ZPL printers cannot join Arabic letters: text sent to them comes out empty or broken. This module sends the Arabic text as a sharp graphic, so every printer prints it exactly as it looks in Odoo.</p>
+    </div>
+    <img src="banner.png" class="img-fluid rounded shadow mb-5 d-block mx-auto" alt="The same label with Arabic sent as text (Arabic disappears) and as a graphic (printed correctly)"/>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="h-100 p-4 rounded border">
+                <h5 style="font-weight: 700;">Correct Arabic, any printer</h5>
+                <p class="mb-0 text-muted">Joined letters, right-to-left, Arabic and English in the same name. No font to download to the printer, works on old models too.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 p-4 rounded border">
+                <h5 style="font-weight: 700;">Name, price, barcode</h5>
+                <p class="mb-0 text-muted">Long names wrap on two lines and shrink to fit. Price with your own text and currency. EAN-13 or Code 128 barcode, centered.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 p-4 rounded border">
+                <h5 style="font-weight: 700;">ZPL or PDF</h5>
+                <p class="mb-0 text-muted">A .zpl file for Zebra, Xprinter, TSC and other ZPL printers at 203 or 300 dpi, or a PDF with one label per page for any printer.</p>
+            </div>
+        </div>
+    </div>
+
+    <h3 style="font-weight: 700;" class="mb-3">Real labels made by the module</h3>
+    <p class="text-muted">50 x 25 mm at 203 dpi, rendered from the module's ZPL output.</p>
+    <img src="labels.png" class="img-fluid rounded shadow mb-5" alt="Three Arabic product labels with price and barcode"/>
+
+    <h3 style="font-weight: 700;" class="mb-3">Print from the products list</h3>
+    <img src="wizard.png" class="img-fluid rounded shadow mb-5" alt="Print Arabic Labels window: label size, resolution, ZPL or PDF, content and quantities"/>
+
+    <h3 style="font-weight: 700;" class="mb-3">How it works</h3>
+    <ol class="mb-5">
+        <li>Select products in Inventory, Sales or Purchase product lists (or open one product).</li>
+        <li>Click <b>Actions &gt; Print Arabic Labels</b>.</li>
+        <li>Pick the label size, the printer resolution and what to show: price, internal reference, barcode. Set how many labels you need of each product.</li>
+        <li>Click <b>Print</b> and send the downloaded <code>.zpl</code> file to your printer, or print the PDF.</li>
+    </ol>
+
+    <h3 style="font-weight: 700;" class="mb-3">Good to know</h3>
+    <ul class="mb-5">
+        <li>Sizes included: 50x25, 40x30, 38x25, 58x40, 100x50 mm, or any custom size.</li>
+        <li>Uses the Tajawal font that comes with Odoo. Nothing to install on the server or the printer.</li>
+        <li>The price text is yours to set, for example &#1575;&#1604;&#1587;&#1593;&#1585;: or Price:, and the currency text too.</li>
+        <li>Text is printed as a graphic, so the ZPL file is larger than plain text labels. Printers handle it in under a second per label.</li>
+    </ul>
+
+    <div class="text-center mb-5">
+        <p class="text-muted">Need another layout or field on the label? Contact me through the Odoo Apps store page.</p>
+    </div>
+</section>

@@ -196,18 +196,26 @@ class MhArabicLabelWizard(models.TransientModel):
             raise UserError(_("Add at least one product with a quantity."))
         return result
 
+    def _zpl_document(self):
+        """All the labels to print, as one ZPL document (bytes). Each product's label is built once."""
+        self.ensure_one()
+        labels, chunks = {}, []
+        try:
+            for product in self._products():
+                if product.id not in labels:
+                    labels[product.id] = self._label_zpl(product)
+                chunks.append(labels[product.id])
+        except lr.ShapingUnavailable:
+            raise UserError(_("This server's Pillow library cannot join Arabic letters. Install libraqm "
+                              "(apt install libraqm0) or: pip install arabic-reshaper python-bidi")) from None
+        return "\n".join(chunks).encode()
+
     def action_print(self):
         self.ensure_one()
         products = self._products()
         try:
             if self.output == "zpl":
-                labels = {}
-                chunks = []
-                for product in products:
-                    if product.id not in labels:
-                        labels[product.id] = self._label_zpl(product)
-                    chunks.append(labels[product.id])
-                data, name, mimetype = "\n".join(chunks).encode(), "arabic_labels.zpl", "text/plain"
+                data, name, mimetype = self._zpl_document(), "arabic_labels.zpl", "text/plain"
             else:
                 pages = {}
                 images = []

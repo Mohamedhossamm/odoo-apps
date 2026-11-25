@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_picking_type_form_mh_labels" model="ir.ui.view">
+        <field name="name">stock.picking.type.form.mh.arabic.labels</field>
+        <field name="model">stock.picking.type</field>
+        <field name="inherit_id" ref="stock.view_picking_type_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='auto_print']" position="after">
+                <group name="mh_arabic_labels">
+                    <group string="Arabic Labels on a Network Printer (no IoT box)">
+                        <field name="mh_label_auto_print"/>
+                        <field name="mh_label_printer_id" invisible="not mh_label_auto_print"
+                               required="mh_label_auto_print" options="{'no_create': True}"/>
+                        <field name="mh_label_size" invisible="not mh_label_auto_print"/>
+                        <field name="mh_label_show_price" invisible="not mh_label_auto_print"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

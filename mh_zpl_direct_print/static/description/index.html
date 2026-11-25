@@ -1,0 +1,53 @@
+<section class="container" style="max-width: 1100px;">
+
+    <div class="text-center mt-5 mb-4">
+        <h1 style="font-weight: 700;">Direct Print to Network Label Printers</h1>
+        <p class="lead mt-3 mb-1">Click Print in Odoo and the labels come out of your label printer. Nothing to download.</p>
+        <p class="text-muted">The Odoo server sends the ZPL labels straight to the printer on its network port (9100). No PrintNode subscription, no agent or browser plugin to install.</p>
+    </div>
+    <img src="banner.png" class="img-fluid rounded shadow mb-5 d-block mx-auto" alt="Odoo sends labels over TCP to a network label printer"/>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="h-100 p-4 rounded border">
+                <h5 style="font-weight: 700;">One click</h5>
+                <p class="mb-0 text-muted">In Print Arabic Labels, choose <b>Print now on a network printer</b>, pick the printer and click Print.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 p-4 rounded border">
+                <h5 style="font-weight: 700;">No monthly fees</h5>
+                <p class="mb-0 text-muted">No PrintNode or cloud print service. The printer only needs an IP address on the same network as the Odoo server.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 p-4 rounded border">
+                <h5 style="font-weight: 700;">Clear errors</h5>
+                <p class="mb-0 text-muted">Printer off, wrong port, wrong address: Odoo tells you exactly what is wrong. Each printer shows its last result.</p>
+            </div>
+        </div>
+    </div>
+
+    <h3 style="font-weight: 700;" class="mb-3">Print from the labels window</h3>
+    <img src="wizard.png" class="img-fluid rounded shadow mb-5" alt="Print Arabic Labels with the option Print now on a network printer"/>
+
+    <h3 style="font-weight: 700;" class="mb-3">Add your printers once</h3>
+    <img src="printer.png" class="img-fluid rounded shadow mb-3" alt="Label printer form with IP address, port, timeout and a Print Test Label button"/>
+    <p class="text-muted mb-5">Settings &gt; Technical &gt; Label Printers. <b>Print Test Label</b> checks the connection and prints a label with Arabic text.</p>
+
+    <h3 style="font-weight: 700;" class="mb-3">What the printer received</h3>
+    <p class="text-muted">A test label and three product labels sent by the module, rendered exactly as a 203 dpi printer prints them.</p>
+    <img src="received.png" class="img-fluid rounded shadow mb-5" alt="Test label and three Arabic product labels as received by the printer"/>
+
+    <h3 style="font-weight: 700;" class="mb-3">Good to know</h3>
+    <ul class="mb-5">
+        <li>Requires <b>Arabic Product Labels for Zebra (ZPL)</b> (mh_arabic_zpl_labels), installed automatically.</li>
+        <li>Works with Zebra, Xprinter, TSC, Honeywell and any printer that accepts ZPL on a network port (9100 by default).</li>
+        <li>The Odoo server must reach the printer: Odoo installed in your company network, or a VPN between the server and the printer. Odoo Online and Odoo.sh cannot reach printers inside your office without a VPN.</li>
+        <li>Only administrators can add or change printers. All users can print.</li>
+    </ul>
+
+    <div class="text-center mb-5">
+        <p class="text-muted">Questions? Contact me through the Odoo Apps store page.</p>
+    </div>
+</section>

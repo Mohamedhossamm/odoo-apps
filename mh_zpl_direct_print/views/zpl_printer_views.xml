@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mh_zpl_printer_list" model="ir.ui.view">
+        <field name="name">mh.zpl.printer.list</field>
+        <field name="model">mh.zpl.printer</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="host"/>
+                <field name="port" options="{'enable_formatting': false}"/>
+                <field name="last_result"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="mh_zpl_printer_form" model="ir.ui.view">
+        <field name="name">mh.zpl.printer.form</field>
+        <field name="model">mh.zpl.printer</field>
+        <field name="arch" type="xml">
+            <form string="Label Printer">
+                <header>
+                    <button name="action_test_print" string="Print Test Label" type="object" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="e.g. Warehouse Zebra ZD220"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="host" placeholder="192.168.1.50"/>
+                            <field name="port" options="{'enable_formatting': false}"/>
+                            <field name="timeout"/>
+                        </group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="last_result"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                    <div class="text-muted">
+                        The Odoo server sends the labels straight to the printer, so the printer must be reachable
+                        from the Odoo server (same network or VPN). You find the printer's IP address on its
+                        configuration label: hold the feed button until it prints one.
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mh_zpl_printer" model="ir.actions.act_window">
+        <field name="name">Label Printers</field>
+        <field name="res_model">mh.zpl.printer</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Add your first network label printer</p>
+            <p>Enter the printer's IP address. Labels are sent on port 9100, like most Zebra, Xprinter and TSC printers.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_mh_zpl_printer" name="Label Printers" parent="base.menu_custom"
+              action="action_mh_zpl_printer" sequence="90" groups="base.group_system"/>
+</odoo>

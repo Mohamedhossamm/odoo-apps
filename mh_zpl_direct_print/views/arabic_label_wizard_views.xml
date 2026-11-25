@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mh_arabic_label_wizard_form_direct_print" model="ir.ui.view">
+        <field name="name">mh.arabic.label.wizard.form.direct.print</field>
+        <field name="model">mh.arabic.label.wizard</field>
+        <field name="inherit_id" ref="mh_arabic_zpl_labels.mh_arabic_label_wizard_form"/>
+        <field name="arch" type="xml">
+            <field name="dpi" position="attributes">
+                <attribute name="invisible">output == 'pdf'</attribute>
+            </field>
+            <field name="output" position="after">
+                <field name="printer_id" invisible="output != 'printer'" required="output == 'printer'"
+                       options="{'no_create': True}"/>
+            </field>
+        </field>
+    </record>
+</odoo>

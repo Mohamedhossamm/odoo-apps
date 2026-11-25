@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mh_zpl_printer_user,mh.zpl.printer user,model_mh_zpl_printer,base.group_user,1,0,0,0
+access_mh_zpl_printer_admin,mh.zpl.printer admin,model_mh_zpl_printer,base.group_system,1,1,1,1

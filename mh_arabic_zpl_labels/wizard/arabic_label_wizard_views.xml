@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mh_arabic_label_wizard_form" model="ir.ui.view">
+        <field name="name">mh.arabic.label.wizard.form</field>
+        <field name="model">mh.arabic.label.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Print Arabic Labels">
+                <group>
+                    <group string="Label">
+                        <field name="label_size"/>
+                        <field name="width_mm" invisible="label_size != 'custom'"/>
+                        <field name="height_mm" invisible="label_size != 'custom'"/>
+                        <field name="dpi" invisible="output != 'zpl'"/>
+                        <field name="output" widget="radio"/>
+                    </group>
+                    <group string="Content">
+                        <field name="font_weight" widget="radio" options="{'horizontal': true}"/>
+                        <field name="show_price"/>
+                        <field name="price_prefix" invisible="not show_price"/>
+                        <field name="currency_text" invisible="not show_price"/>
+                        <field name="show_code"/>
+                        <field name="show_barcode"/>
+                    </group>
+                </group>
+                <field name="line_ids">
+                    <tree editable="bottom">
+                        <field name="product_id"/>
+                        <field name="quantity"/>
+                    </tree>
+                </field>
+                <footer>
+                    <button name="action_print" string="Print" type="object" class="btn-primary" data-hotkey="q"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="x"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mh_arabic_labels_template" model="ir.actions.act_window">
+        <field name="name">Print Arabic Labels</field>
+        <field name="res_model">mh.arabic.label.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="product.model_product_template"/>
+        <field name="binding_view_types">list,form</field>
+    </record>
+
+    <record id="action_mh_arabic_labels_product" model="ir.actions.act_window">
+        <field name="name">Print Arabic Labels</field>
+        <field name="res_model">mh.arabic.label.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="product.model_product_product"/>
+        <field name="binding_view_types">list,form</field>
+    </record>
+</odoo>

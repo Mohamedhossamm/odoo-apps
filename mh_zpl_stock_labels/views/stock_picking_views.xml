@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_picking_form_mh_labels" model="ir.ui.view">
+        <field name="name">stock.picking.form.mh.arabic.labels</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[@name='button_validate'][last()]" position="after">
+                <button name="action_mh_print_arabic_labels" string="Arabic Labels" type="object" icon="fa-barcode"
+                        invisible="state in ('draft', 'cancel')" groups="stock.group_stock_user"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

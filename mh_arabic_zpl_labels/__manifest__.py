@@ -8,7 +8,7 @@
     "category": "Inventory/Inventory",
     "author": "Mohamed Hossam",
     "license": "OPL-1",
-    "price": 49.0,
+    "price": 19.0,
     "currency": "USD",
     "depends": ["product"],
     "data": [

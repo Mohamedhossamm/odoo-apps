@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mh_arabic_label_wizard,mh.arabic.label.wizard,model_mh_arabic_label_wizard,base.group_user,1,1,1,1
+access_mh_arabic_label_wizard_line,mh.arabic.label.wizard.line,model_mh_arabic_label_wizard_line,base.group_user,1,1,1,1
